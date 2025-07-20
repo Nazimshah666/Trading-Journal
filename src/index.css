@@ -1,0 +1,435 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent horizontal scroll globally */
+body {
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar - Optimized for performance */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #6B7280 #374151;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track,
+.scrollbar-track-gray-800::-webkit-scrollbar-track {
+  background: #374151;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb,
+.scrollbar-thumb-gray-600::-webkit-scrollbar-thumb {
+  background: #6B7280;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover,
+.scrollbar-thumb-gray-600::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Optimized slider styles */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #374151;
+  outline: none;
+  border-radius: 6px;
+  height: 6px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #3B82F6;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  transition: all 0.15s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #2563EB;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.4);
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #3B82F6;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  transition: all 0.15s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  background: #2563EB;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.4);
+  transform: scale(1.1);
+}
+
+/* Performance optimized transitions */
+* {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Enhanced focus states - minimal and fast */
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #00f0ff, 0 0 8px rgba(0, 240, 255, 0.3);
+  transition: box-shadow 0.15s ease;
+}
+
+/* Optimized button interactions */
+button:hover {
+  transform: translateY(-0.5px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Chart optimizations - prevent white backgrounds */
+.recharts-wrapper {
+  font-family: inherit;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #374151 !important;
+  stroke-opacity: 0.15 !important;
+}
+
+.recharts-wrapper .recharts-cartesian-grid-background,
+.recharts-wrapper .recharts-cartesian-grid rect,
+.recharts-surface {
+  fill: transparent !important;
+  background: transparent !important;
+}
+
+/* Modern A+ Setup Toggle - Compressed */
+.aplus-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.aplus-toggle-switch {
+  position: relative;
+  width: 2.5rem;
+  height: 1.25rem;
+  background: #374151;
+  border: 1px solid #4B5563;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.aplus-toggle-switch.active {
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+  border-color: #F59E0B;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.aplus-toggle-knob {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aplus-toggle-switch.active .aplus-toggle-knob {
+  transform: translateX(1.25rem);
+  background: #FEF3C7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.aplus-toggle-icon {
+  font-size: 0.5rem;
+  transition: all 0.15s ease;
+  opacity: 0;
+}
+
+.aplus-toggle-switch.active .aplus-toggle-icon {
+  opacity: 1;
+}
+
+.aplus-toggle-label {
+  margin-left: 0.5rem;
+  font-weight: 500;
+  color: #D1D5DB;
+  transition: color 0.15s ease;
+  font-size: 0.875rem;
+}
+
+.aplus-toggle.active .aplus-toggle-label {
+  color: #FBBF24;
+}
+
+/* Optimized animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+  }
+}
+
+.modal-enter {
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-exit {
+  animation: modalFadeOut 0.2s ease-in;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .recharts-wrapper {
+    font-size: 10px;
+  }
+  
+  /* Better touch targets */
+  button {
+    min-height: 36px;
+    min-width: 36px;
+  }
+  
+  /* Prevent zoom on iOS */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  /* Modal mobile optimizations */
+  .modal-mobile {
+    max-width: calc(100vw - 16px);
+    margin: 8px;
+  }
+  
+  /* Ensure no element is cut off on narrow screens */
+  .header-actions {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  
+  /* Prevent header overflow on very narrow screens */
+  .header-container {
+    min-width: 320px;
+  }
+}
+
+/* Ultra-narrow screen support (< 360px) */
+@media (max-width: 359px) {
+  .header-actions button {
+    padding: 6px;
+  }
+  
+  .header-actions button span {
+    display: none;
+  }
+  
+  /* Ensure modals fit on very small screens */
+  .modal-container {
+    max-width: calc(100vw - 12px);
+    margin: 6px;
+  }
+}
+
+/* Tall screen optimizations (aspect ratio > 2:1) */
+@media (min-aspect-ratio: 2/1) {
+  .modal-container {
+    max-height: 85vh;
+  }
+}
+
+/* Very tall screens (like 1080x2436) */
+@media (min-height: 800px) {
+  .modal-container {
+    max-height: 90vh;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gray-800\/50 {
+    background-color: rgba(31, 41, 55, 0.8);
+  }
+  
+  .border-gray-700\/50 {
+    border-color: rgba(75, 85, 99, 0.8);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  button:hover {
+    transform: none;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Form element consistency */
+select, input[type="text"], input[type="number"], input[type="email"], 
+input[type="password"], input[type="date"], input[type="time"], 
+input[type="url"], textarea {
+  background-color: rgba(31, 41, 55, 0.5) !important;
+  border-color: rgba(75, 85, 99, 0.5) !important;
+  color: white !important;
+}
+
+select option {
+  background-color: #1F2937 !important;
+  color: white !important;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus,
+input[type="password"]:focus, input[type="date"]:focus, input[type="time"]:focus,
+input[type="url"]:focus, textarea:focus, select:focus {
+  background-color: rgba(31, 41, 55, 0.7) !important;
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  background-color: rgba(31, 41, 55, 0.5) !important;
+  border-color: rgba(75, 85, 99, 0.5) !important;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #3B82F6 !important;
+  border-color: #3B82F6 !important;
+}
+
+/* Performance: GPU acceleration for frequently animated elements */
+.aplus-toggle-switch,
+.aplus-toggle-knob,
+button,
+.slider::-webkit-slider-thumb {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Prevent text selection on interactive elements to avoid UI freezes */
+button, .aplus-toggle, select, input[type="range"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection on input fields */
+input[type="text"], input[type="number"], input[type="email"], 
+input[type="password"], input[type="date"], input[type="time"], 
+input[type="url"], textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Optimize modal backdrop */
+.fixed.inset-0 {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Enhanced modal responsiveness */
+@media (max-width: 640px) {
+  .modal-container {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    margin: 12px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .modal-container {
+    max-width: 600px;
+  }
+}
+
+/* Smooth scrolling for modal content */
+.modal-scroll {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Enhanced button hover effects for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .modal-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .modal-button:active {
+    transform: translateY(0);
+  }
+}
